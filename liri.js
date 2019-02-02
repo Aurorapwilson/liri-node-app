@@ -1,20 +1,18 @@
 require("dotenv").config();
 
-//node cases ex. node liri.js concert-this <artist/band name here>
-// * `concert-this`
-
-// * `spotify-this-song`
-
-// * `movie-this`
-
-// * `do-what-it-says`
-//import key.js file
+//project variables
 var keys = require("./keys.js");
 
-//spotify request
 
-const liriArgument = process.argv[2];
+
+//variables to store CL input
+
+
+const liriArgument = process.argv[2]
+const searchTerm = process.argv[3];//movie title, concert, songs title. 
+
 //----------------------------------------------------------------------------------------//
+
     //possible commands for this liri app
 
     switch (liriArgument){
@@ -39,6 +37,33 @@ const liriArgument = process.argv[2];
      }
 
     //  -------------------------------------------------------------------------------------//
-    //create functions 
+    //functions 
+    // function spotifySong(){
+    //     if (liriArgument === "spotify-this-song"){
+           
+    //     };
+    //axios api call to ombd and bandsintown
+//look up axios require
+var axios = require ('axios');
+//axios api call
+
+
+axios.get("http://www.omdbapi.com/?t="+searchTerm+"&y=&plot=short&apikey=trilogy").then(
+  function(response) {
+    // Then we print out the imdbRating
+    
+    console.log(response);
+    console.log("The movie's rating is: " + response.data.imdbRating);
+  });
+
+
+    
+ 
+
+
+
+
+
+    
 
 
